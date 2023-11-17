@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.asu.sd.components.impl.MoistureSensor;
 import com.asu.sd.models.FarmDetails;
 import com.asu.sd.repository.FarmDetailsRepository;
 
@@ -40,4 +42,21 @@ public class RestApiController {
     	return farmDetailsList.stream().map(FarmDetails::getOwner).collect(Collectors.toList());
     }
 
+	@GetMapping("/setSensor/")
+    public String setSensor(int X, int Y) {
+    	MoistureSensor sensor = new MoistureSensor(X,Y);
+        return sensor.getLocation().toString();
+    }
+	
+	
+	@GetMapping("/getMoistureLevel/{farmId}")
+	public void getMoistureSetting(String farmId) {
+		
+		
+	}
+	
+	
+	
+	
 }
+
