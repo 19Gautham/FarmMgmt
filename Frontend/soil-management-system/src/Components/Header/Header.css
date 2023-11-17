@@ -1,0 +1,22 @@
+/* Add this CSS to your Header component or a separate CSS file */
+
+header {
+    background-color: #4285f4; /* Header background color (you can change this) */
+    color: #ffffff; /* Text color (you can change this) */
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo h1 {
+    margin: 0;
+    font-size: 24px;
+    align-items: center;
+  }
+  
+  /* Add additional styling for navigation links or other header elements */
+  
