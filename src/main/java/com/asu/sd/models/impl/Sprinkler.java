@@ -37,7 +37,7 @@ public class Sprinkler {
 	private int zone;
 
 	@Column(name = "status")
-	private Status state = Status.OFF;
+	private boolean state = false;
 
 	public Long getSensorId() {
 		return sprinklerId;
@@ -51,6 +51,22 @@ public class Sprinkler {
 		return farmId;
 	}
 
+	public Long getSprinklerId() {
+		return sprinklerId;
+	}
+
+	public void setSprinklerId(Long sprinklerId) {
+		this.sprinklerId = sprinklerId;
+	}
+
+	public boolean isState() {
+		return state;
+	}
+
+	public void setState(boolean state) {
+		this.state = state;
+	}
+
 	public void setFarmId(Long farmId) {
 		this.farmId = farmId;
 	}
@@ -61,10 +77,6 @@ public class Sprinkler {
 
 	public void setZone(int zone) {
 		this.zone = zone;
-	}
-
-	public enum Status {
-		ON, OFF;
 	}
 }
 
