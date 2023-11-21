@@ -18,4 +18,8 @@ public class SensorService {
 		return moistureSensorRepository.findByFarmId(farmId);
 	}
 
+	public void updateMoistureInSensor(Long sensorId, float new_moisture) {
+		moistureSensorRepository.updateMoistureLevel(sensorId, new_moisture);
+	}
+
 }

@@ -26,8 +26,8 @@ public class Sprinkler {
 	}
 
 	@Id
-	@SequenceGenerator(name = "sensorID", allocationSize=1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sensorID")
+	@SequenceGenerator(name = "sprinklerID", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sprinklerID")
 	private Long sprinklerId;
 
 	@Column(name = "farmId", nullable=false)
@@ -38,14 +38,6 @@ public class Sprinkler {
 
 	@Column(name = "status")
 	private boolean state = false;
-
-	public Long getSensorId() {
-		return sprinklerId;
-	}
-
-	public void setSensorId(Long sprinklerId) {
-		this.sprinklerId = sprinklerId;
-	}
 
 	public Long getFarmId() {
 		return farmId;
