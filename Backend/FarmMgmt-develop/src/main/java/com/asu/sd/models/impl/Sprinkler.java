@@ -21,10 +21,6 @@ import lombok.NoArgsConstructor;
 @Table(name="sprinkler")
 public class Sprinkler {
 
-	public Sprinkler() {
-		super();
-	}
-
 	@Id
 	@SequenceGenerator(name = "sprinklerID", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sprinklerID")

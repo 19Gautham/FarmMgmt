@@ -21,10 +21,6 @@ import lombok.NoArgsConstructor;
 @Table(name="lightSensor")
 public class LightSensor {
 
-	public LightSensor() {
-		super();
-	}
-
 	@Id
 	@SequenceGenerator(name = "sensorID", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sensorID")

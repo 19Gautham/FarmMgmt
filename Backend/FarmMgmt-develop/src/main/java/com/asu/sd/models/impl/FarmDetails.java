@@ -21,10 +21,6 @@ import lombok.NoArgsConstructor;
 @Table(name="farmDetails")
 public class FarmDetails {
 
-	public FarmDetails() {
-		super();
-	}
-
 	@Id
 	@SequenceGenerator(name = "farmID", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "farmID")

@@ -3,6 +3,7 @@ package com.asu.sd.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.asu.sd.repository.MoistureSensorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class AutomationService {
 
 	@Scheduled(fixedDelay = 5000)
 	public void trigger() {
-		System.out.println("Running monioring tasks");
+		System.out.println("Running monitoring tasks");
 		List<FarmDetails> farmDetailsList = farmDetailsRepository.findAll();
 		List<MoistureSensor> moistureSensorList = moistureSensorRepository.findAll();
 		List<Sprinkler> sprinklerList = sprinklerRepository.findAll();
@@ -37,12 +38,12 @@ public class AutomationService {
 		monitorOngoingIrrigation(farmDetailsList, moistureSensorList, sprinklerList);
 		
 		// Monitoring soil moisture sensors
-		moitorSoilMoisture(farmDetailsList, moistureSensorList, sprinklerList);
+		monitorSoilMoisture(farmDetailsList, moistureSensorList, sprinklerList);
 	}
 
 	@Transactional
-	private void moitorSoilMoisture(List<FarmDetails> farmDetailsList, List<MoistureSensor> moistureSensorList,
-			List<Sprinkler> sprinklerList) {
+	private void monitorSoilMoisture(List<FarmDetails> farmDetailsList, List<MoistureSensor> moistureSensorList,
+									 List<Sprinkler> sprinklerList) {
 		for (FarmDetails farm : farmDetailsList) {
 			for (MoistureSensor sensor : moistureSensorList.stream().filter(s -> s.getFarmId() == farm.getFarmId() && s.getReading() < farm.getMoistureThreshold()).collect(Collectors.toList())) {
 				System.out.println("Turning state of sprinkler of farm " + sensor.getFarmId() + " at zone " + sensor.getZone() + " ON.");

@@ -21,10 +21,6 @@ import lombok.NoArgsConstructor;
 @Table(name="moistureSensor")
 public class MoistureSensor {
 
-	public MoistureSensor() {
-		super();
-	}
-
 	@Id
 	@SequenceGenerator(name = "sensorID", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sensorID")
